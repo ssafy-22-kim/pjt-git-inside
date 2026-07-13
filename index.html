@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Inside - 교육용 Git 시뮬레이터</title>
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('git-inside-theme');
+            const preferredTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.dataset.theme = savedTheme || preferredTheme;
+        } catch {
+            document.documentElement.dataset.theme = 'light';
+        }
+    </script>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/simulator.css">

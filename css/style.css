@@ -67,3 +67,27 @@
 .btn-small { padding: 0.35rem 0.6rem; font-size: 0.75rem; }
 .status-pill { padding: 0.45rem 0.75rem; border-radius: 999px; background: #fff7ed; color: #9a3412; font-size: 0.78rem; font-weight: 700; }
 .empty-state { padding: 1rem; border: 1px dashed var(--border-color); border-radius: 0.4rem; color: var(--text-muted); font-size: 0.82rem; text-align: center; }
+
+.theme-toggle { min-width: 7.5rem; }
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --card-bg: #111827;
+    --border-color: #334155;
+    --text-muted: #94a3b8;
+    --dark-bg: #020617;
+}
+
+html[data-theme="dark"] body {
+    background: #080d19;
+    color: #e5e7eb;
+}
+
+html[data-theme="dark"] .btn-secondary {
+    background: #253047;
+    color: #e5e7eb;
+}
+
+html[data-theme="dark"] .btn-secondary:hover { background: #334155; }
+html[data-theme="dark"] .status-pill { background: #431407; color: #fdba74; }
+html[data-theme="dark"] .code-text { background: #1e293b; color: #e2e8f0; }

@@ -10,9 +10,12 @@ import { renderExplanationPanel } from './explanationPanel.js';
 function renderHeader(state) {
     const repository = state.repository;
     const status = repository.initialized ? `HEAD → ${repository.head}` : '저장소 초기화 전';
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    const themeLabel = isDark ? '라이트 모드' : '다크 모드';
+    const themeIcon = isDark ? '☀️' : '🌙';
     byId('header-panel').innerHTML = `
         <div><p class="eyebrow">INTERACTIVE LEARNING LAB</p><h1>Git Inside</h1><p>명령 한 줄이 Git 내부를 어떻게 바꾸는지 직접 확인하세요.</p></div>
-        <div class="header-actions"><span class="status-pill">${escapeHtml(status)}</span><button class="btn btn-secondary" data-open-help>도움말</button><button class="btn btn-primary" data-reset>처음부터</button></div>
+        <div class="header-actions"><span class="status-pill">${escapeHtml(status)}</span><button class="btn btn-secondary theme-toggle" data-theme-toggle aria-pressed="${isDark}">${themeIcon} ${themeLabel}</button><button class="btn btn-secondary" data-open-help>도움말</button><button class="btn btn-primary" data-reset>처음부터</button></div>
     `;
 }
 

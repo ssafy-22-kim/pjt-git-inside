@@ -33,6 +33,17 @@ function requestCommand(command) {
 
 function handleClick(event) {
     const target = event.target;
+    if (target.closest('[data-theme-toggle]')) {
+        const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = nextTheme;
+        try {
+            localStorage.setItem('git-inside-theme', nextTheme);
+        } catch {
+            // 저장소 접근이 제한된 환경에서도 테마 전환 자체는 유지한다.
+        }
+        store.update((state) => ({ ...state }));
+        return;
+    }
     if (target.closest('[data-reset]')) {
         if (window.confirm('학습 상태와 명령 기록을 모두 초기화할까요?')) store.reset();
         return;

@@ -279,3 +279,80 @@
     .repository-summary { justify-content: flex-start; }
     .history-entry { grid-template-columns: 1fr; gap: 0.15rem; }
 }
+
+/* Theme and motion upgrades */
+.panel,
+.console-section,
+.explanation-section {
+    animation: rise-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.internal-panels-grid .panel:nth-child(2) { animation-delay: 0.08s; }
+.console-section { animation-delay: 0.12s; }
+.explanation-section { animation-delay: 0.18s; }
+
+.panel {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.panel:hover {
+    transform: translateY(-5px);
+    border-color: rgba(240, 80, 50, 0.5);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.13);
+}
+
+.object-node { animation: node-pop 0.38s ease-out both; }
+.object-node:nth-child(2) { animation-delay: 0.06s; }
+.object-node:nth-child(3) { animation-delay: 0.12s; }
+
+@keyframes rise-in {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes node-pop {
+    from { opacity: 0; transform: scale(0.94); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+html[data-theme="dark"] .header-section,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .explanation-section {
+    background: #111827;
+    color: #e5e7eb;
+}
+
+html[data-theme="dark"] .progress-section {
+    background: #111c33;
+    border-color: #27456f;
+}
+
+html[data-theme="dark"] .section-title-bar { border-color: #334155; }
+html[data-theme="dark"] .section-title-bar h2,
+html[data-theme="dark"] .panel h3,
+html[data-theme="dark"] .explanation-section h3 { color: #f1f5f9; }
+html[data-theme="dark"] .panel h3 { border-color: #263247; }
+html[data-theme="dark"] .progress-copy p,
+html[data-theme="dark"] .explanation-section p,
+html[data-theme="dark"] .help-panel ul { color: #aab7cb; }
+html[data-theme="dark"] .repository-summary span { background: #1e293b; color: #cbd5e1; }
+html[data-theme="dark"] .file-card,
+html[data-theme="dark"] .prediction-card { background: #172033; border-color: #334155; }
+html[data-theme="dark"] .file-card--index { background: #251a36; border-color: #6b3c8e; }
+html[data-theme="dark"] .file-card--commit { background: #102a23; border-color: #246b55; }
+html[data-theme="dark"] .editor-textarea,
+html[data-theme="dark"] .graph-canvas { background: #0b1220; border-color: #334155; color: #e5e7eb; }
+html[data-theme="dark"] .prediction-card:has(input:checked) { background: #431407; border-color: var(--primary-color); }
+html[data-theme="dark"] .branch-line.is-current { background: #2c1a12; }
+html[data-theme="dark"] .object-node--commit { background: #14213a; }
+html[data-theme="dark"] .object-node--tree { background: #2b2412; }
+html[data-theme="dark"] .object-node--blob { background: #261833; }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
