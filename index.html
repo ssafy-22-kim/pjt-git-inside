@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Inside - 교육용 Git 시뮬레이터</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/simulator.css">
+</head>
+<body>
+    <div id="app-container">
+        <!-- 1. Header -->
+        <header id="header-panel" class="header-section">
+            <!-- 동적 렌더링 영역 -->
+        </header>
+
+        <!-- 2. Scenario Progress -->
+        <section id="progress-panel" class="progress-section">
+            <!-- 동적 렌더링 영역 -->
+        </section>
+
+        <!-- Main Content Area -->
+        <main class="main-layout">
+            <!-- 3. Repository State (Left Column) -->
+            <section class="repository-state-container">
+                <div class="section-title-bar section-title-bar--summary">
+                    <div><p class="eyebrow">LIVE SNAPSHOT</p><h2>Repository State</h2></div>
+                    <div id="repository-summary" class="repository-summary"></div>
+                </div>
+                <div id="repository-panels" class="repository-panels-grid">
+                    <!-- Working Directory, Index, HEAD Commit 3열 배치 영역 -->
+                </div>
+            </section>
+
+            <!-- 4. Git Internal View (Right Column) -->
+            <section class="internal-view-container">
+                <div class="section-title-bar">
+                    <div><p class="eyebrow">.GIT DIRECTORY</p><h2>Git Internal View</h2></div>
+                </div>
+
+                <div class="internal-panels-grid">
+                    <!-- Branch / HEAD Graph -->
+                    <div class="panel">
+                        <h3>Branch & HEAD Graph</h3>
+                        <div id="branch-graph" class="graph-canvas"></div>
+                    </div>
+
+                    <!-- Object Database / Object Graph -->
+                    <div class="panel">
+                        <h3>Object Database & Graph</h3>
+                        <div id="object-graph" class="graph-canvas"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 5. Command Console -->
+        <section id="console-panel" class="console-section">
+            <!-- 동적 렌더링 영역 -->
+        </section>
+
+        <!-- 6. Prediction / Explanation Panel -->
+        <section id="explanation-panel" class="explanation-section">
+            <!-- 동적 렌더링 영역 -->
+        </section>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
